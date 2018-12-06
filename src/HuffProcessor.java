@@ -52,7 +52,7 @@ public class HuffProcessor {
 		
 		in.reset();
 		writeCompressedBits(codings, in, out);
-		out.close();
+		//out.close();
 	}
 	
 	private void writeCompressedBits(String[] codings, BitInputStream in, BitOutputStream out) {
