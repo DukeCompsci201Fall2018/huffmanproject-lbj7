@@ -110,6 +110,9 @@ public class HuffProcessor {
 			pq.add(t);
 		}
 		HuffNode root = pq.remove();
+		if(myDebugLevel > DEBUG_HIGH) {
+			System.out.printf("pq created with %d nodes \n", pq.size());
+		}
 		return root;
 	}
 
