@@ -113,7 +113,7 @@ public class HuffProcessor {
 	}
 
 	private int[] readForCounts(BitInputStream in) {
-		int[] freq = new int[ALPH_SIZE +1];
+		int[] freq = new int[257];
 		freq[PSEUDO_EOF] = 1;
 		int bits = 0;
 		while(bits != -1) {
