@@ -83,11 +83,11 @@ public class HuffProcessor {
 	    codingHelper(root,"",encodings);
 		return encodings;
 	}
-	private TreeMap<Integer,String> myMap = new TreeMap<>();
+	
 	private void codingHelper(HuffNode root, String path, String[] encodings) {
 		if (root == null) return;
 		 if (root.myRight == null && root.myLeft == null) {
-		        encodings[root.myValue] = path;
+		        encodings[root.myValue] = path; //PROBLEMS FIX THIS
 		        return;
 		 } else {
 			 codingHelper(root.myLeft, path+"0", encodings);
@@ -105,7 +105,7 @@ public class HuffProcessor {
 		while(pq.size()>1) {
 			HuffNode left = pq.remove();
 			HuffNode right = pq.remove();
-			HuffNode t =  new HuffNode(-1, left.myWeight + right.myWeight, null, null);
+			HuffNode t =  new HuffNode(0, left.myWeight + right.myWeight, null, null);
 			pq.add(t);
 		}
 		HuffNode root = pq.remove();
