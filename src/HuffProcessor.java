@@ -84,7 +84,8 @@ public class HuffProcessor {
 	}
 
 	private void codingHelper(HuffNode root, String path, String[] encodings) {
-		 if (root.myRight == null && root.myLeft == null && root.myValue > -1) {
+		 if (root.myRight == null && root.myLeft == null) {
+			 	if (root.myValue == PSEUDO_EOF) return;
 		        encodings[root.myValue] = path;
 		        return;
 		 } else {
