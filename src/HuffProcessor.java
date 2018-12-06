@@ -90,7 +90,7 @@ public class HuffProcessor {
 		return ret;
 		//return encodings;
 	}
-	TreeMap<Integer,String> myMap = new TreeMap<>();
+	private TreeMap<Integer,String> myMap = new TreeMap<>();
 	private void codingHelper(HuffNode root, String path, String[] encodings) {
 		if (root == null) return;
 		 if (root.myRight == null && root.myLeft == null) {
