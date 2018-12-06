@@ -92,10 +92,9 @@ public class HuffProcessor {
 		 if (root.myRight == null && root.myLeft == null) {
 		        encodings[root.myValue] = path; 
 		        return;
-		 } else {
-			 codingHelper(root.myLeft, path+"0", encodings);
-			 codingHelper(root.myRight, path+"1", encodings);
 		 }
+		 if (root.myLeft != null) codingHelper(root.myLeft, path+"0", encodings);
+		 if (root.myRight != null) codingHelper(root.myRight, path+"1", encodings);
 	}
 
 	private HuffNode makeTreeCounts(int[] counts) {
@@ -105,7 +104,6 @@ public class HuffProcessor {
 				pq.add(new HuffNode(i, counts[i], null, null));
 			}
 		}
-		pq.add(new HuffNode(PSEUDO_EOF, 1));
 		while(pq.size()>1) {
 			HuffNode left = pq.remove();
 			HuffNode right = pq.remove();
