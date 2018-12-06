@@ -81,21 +81,13 @@ public class HuffProcessor {
 	private String[] makeCodingsFromTree(HuffNode root) {
 		String[] encodings = new String[ALPH_SIZE + 1];
 	    codingHelper(root,"",encodings);
-	    String[] ret = new String[myMap.size()];
-		int index = 0;
-		for(int s : myMap.keySet()) {
-			ret[index] = myMap.get(s);
-			index += 1;
-		}
-		return ret;
-		//return encodings;
+		return encodings;
 	}
 	private TreeMap<Integer,String> myMap = new TreeMap<>();
 	private void codingHelper(HuffNode root, String path, String[] encodings) {
 		if (root == null) return;
 		 if (root.myRight == null && root.myLeft == null) {
-		        myMap.put(root.myValue, path);
-		        
+		        encodings[root.myValue] = path;
 		        return;
 		 } else {
 			 codingHelper(root.myLeft, path+"0", encodings);
