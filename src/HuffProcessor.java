@@ -1,4 +1,5 @@
 import java.util.PriorityQueue;
+import java.util.TreeMap;
 
 /**
  * Although this class has a history of several years,
@@ -80,13 +81,21 @@ public class HuffProcessor {
 	private String[] makeCodingsFromTree(HuffNode root) {
 		String[] encodings = new String[ALPH_SIZE + 1];
 	    codingHelper(root,"",encodings);
-		return encodings;
+	    String[] ret = new String[myMap.size()];
+		int index = 0;
+		for(int s : myMap.keySet()) {
+			ret[index] = myMap.get(s);
+			index += 1;
+		}
+		return ret;
+		//return encodings;
 	}
-
+	TreeMap<Integer,String> myMap = new TreeMap<>();
 	private void codingHelper(HuffNode root, String path, String[] encodings) {
 		if (root == null) return;
 		 if (root.myRight == null && root.myLeft == null) {
-		        encodings[root.myValue] = path;
+		        myMap.put(root.myValue, path);
+		        
 		        return;
 		 } else {
 			 codingHelper(root.myLeft, path+"0", encodings);
